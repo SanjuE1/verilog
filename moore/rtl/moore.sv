@@ -1,7 +1,7 @@
 module vending_machinee (clk, rst, data, dout_pro, dout_bal) ;
   input clk, rst; input [1:0]data;
   output dout_pro, dout_bal;
-  reg [2:01ps,ns;
+  reg [2:0]ps,ns;
   parameter idle=3'b000,
             s1=3'b001,
             s2=3'b010,
@@ -46,6 +46,6 @@ else ns=idle;
     s3: ns=idle; s4:ns=idle;
       endcasel
 end
-assign dout_pro= (ps==3 || ps ==s4) 21 'bl:1'b0;
-assign dout_bal= (ps==4) 21'bl: 1'b0;
+    assign dout_pro= (ps==3 || ps ==s4)? 2 'bl:1'b0;
+    assign dout_bal= (ps==4) ?1'bl: 1'b0;
 endmodule
